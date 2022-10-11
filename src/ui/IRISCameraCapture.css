@@ -1,0 +1,199 @@
+.borderSstyle {
+    border: 1px solid;
+    border-radius: 25px;
+}
+
+.img_camera {
+    width: 400px;
+    height: 240px;
+    position: absolute;
+    top: 5px;
+    padding-right: 64px;
+    
+}
+
+button#EyeCaptureButton {
+    color: white !important;
+    background: #1f3646 !important;
+    border-bottom: 3px solid #9e8615 !important;
+    border-radius: 0 !important;
+    margin-bottom: 1px !important;
+    font-size: 18px;
+    font-weight: bold;
+    width: 130px;
+    height: 35px;
+}
+
+
+
+button#connectButton {
+    color: white !important;
+    background: #1f3646 !important;
+    border-bottom: 3px solid #9e8615 !important;
+    border-radius: 0 !important;
+    margin-bottom: 1px !important;
+    font-size: 18px;
+    font-weight: bold;
+    width: 130px;
+    height: 35px;
+}
+
+.panel-default > .panel-heading {
+    direction: rtl;
+    background-color: #1f3646;
+    border-bottom: 3px solid #9e8615;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-orientation: rtl;
+}
+
+.form-control {
+    border: 1px solid #9e8615;
+}
+
+button#saveButton {
+    background-color: #1f3646;
+    border-bottom: 3px solid #9e8615;
+    font-size: 18px;
+    font-weight: bold;
+    height: 35px;
+    color: white;
+    width: 200px !important;
+}
+
+button#captureButton {
+    background-color: #1f3646;
+    border-bottom: 3px solid #9e8615;
+    font-size: 18px;
+    font-weight: bold;
+    height: 35px;
+    color: white;
+    width: 200px !important;
+    top: 15px;
+    position: relative;
+}
+
+button#SaveImageCapture {
+    background-color: #1f3646;
+    border-bottom: 3px solid #9e8615;
+    font-size: 18px;
+    font-weight: bold;
+    height: 35px;
+    color: white;
+    width: 200px !important;
+    top: 15px;
+    position: relative;
+}
+
+button#EyeCaptureButton::after {
+     
+    color: #9e8615;
+    font-size: 18px;
+    margin-left: 5px
+}
+
+button#connectButton:after {
+    
+    color: #9e8615;
+    font-size: 18px;
+    margin-left: 5px
+}
+
+button#captureButton:after {
+     
+    color: #9e8615;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+button#saveButton:after {
+   
+    color: #9e8615;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+button#buttonBack:hover {
+    opacity: 0.8;
+    color: blanchedalmond;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+button#buttonRefresh:hover {
+    opacity: 0.8;
+    color: blanchedalmond;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
+button#buttonBack {
+    background: #1f3646 !important;
+    border-bottom: 3px solid #9e8615;
+    color: white !important;
+    width: 105px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+button#buttonRefresh {
+    background: #1f3646 !important;
+    border-bottom: 3px solid #9e8615;
+    color: white !important;
+    width: 105px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+#Progressloading{
+    left: 35px;
+    top: 48px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: url('https://www.marcotec-shop.com/pub/static/frontend/Triple/marcotec/en_US/images/loading_small.gif') no-repeat center center;
+}
+
+img#fakeIMage {
+    position: relative;
+    width: 68%;
+    left: 26%;
+    top: 41%;
+}
+
+
+.header {
+    height: 10%;
+    background-color: #1C2932;
+    border-radius: 15px 15px 0 0;
+   
+}
+.RowHeader {
+    direction: rtl;
+}
+
+.ContainerImages{
+    top: 100px;
+    position: relative;
+}
+
+p {
+    position: relative;
+    bottom:  10px;
+}
+
+.HeaderRow2{
+    direction: rtl;
+    position: relative;
+    top: 34px;
+}

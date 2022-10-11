@@ -1,0 +1,38 @@
+{
+  "name": "iriscameracapture",
+  "widgetName": "IRISCameraCapture",
+  "version": "1.0.0",
+  "description": "My widget description",
+  "copyright": "© Mendix Technology BV 2022. All rights reserved.",
+  "author": "John",
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "Apache-2.0",
+  "config": {
+    "projectPath": "C:\\\\Users\\\\admin\\\\Documents\\\\Mendix\\\\Test_Integration-main",
+    "mendixHost": "http://localhost:8080",
+    "developmentPort": 3000
+  },
+  "packagePath": "mendix",
+  "scripts": {
+    "start": "pluggable-widgets-tools start:server",
+    "dev": "pluggable-widgets-tools start:web",
+    "build": "pluggable-widgets-tools build:web",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "test": "pluggable-widgets-tools test:unit:web --no-cache --ci && npm run test:e2e",
+    "test:unit": "pluggable-widgets-tools test:unit:web --coverage",
+    "test:e2e": "pluggable-widgets-tools test:e2e:web:cypress",
+    "test:e2e:local": "pluggable-widgets-tools test:e2e:web:cypress:local -- --config-file cypress/cypress.config.js",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:web"
+  },
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "^9.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "classnames": "^2.2.6"
+  }
+}
