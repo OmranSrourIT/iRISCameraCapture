@@ -12,8 +12,9 @@ export class IRISCameraCapture extends Component {
             URLStopLiveImage_Capture : "http://localhost:1234/api/Home/StopLiveImage_Capture",
             FlagWhenCloseDevice: false,
             ProgressloadingHidden: false,
-            IMAGE_IRIS: "./img/MyFirstModule$Images$SerivceNotFound.png",
-            imgCaptured: "./img/MyFirstModule$Images$PersonPic.png",
+            IMAGE_IRIS: `./img/${this.props.ModuleName.value}$${this.props.ImageCollection.value}$SerivceNotFound.png`,
+            imgCaptured: `./img/${this.props.ModuleName.value}$${this.props.ImageCollection.value}$PersonPic.png`,
+            
             FakeIMageHide: false,
             ChnageStyle: { borderRadius: '1px solid #000000' , objectFit: 'contain' },
             ChnageIMage2Style : {borderRadius: '1px solid #000000' , objectFit: 'contain' }
@@ -31,6 +32,16 @@ export class IRISCameraCapture extends Component {
         //     alert("الكاميرا قيد التشغيل")
         // }
     }
+
+    ClosePage()
+    {
+
+        if (this.props.onCloseAction && this.props.onCloseAction.canExecute) {
+          
+                this.props.onCloseAction.execute();
+            }
+    }
+
     componentWillUnmount()
     { 
         this.CloseDevice();
@@ -50,9 +61,9 @@ export class IRISCameraCapture extends Component {
 
     SaveCaptureCamera() {
         debugger;
-        if (this.props.onSavekAction && this.props.onSavekAction.canExecute) {
+        if (this.props.onSaveAction && this.props.onSaveAction.canExecute) {
             if (this.state.imgCaptured.includes("data:image/png;base64")) {
-                this.props.onSavekAction.execute();
+                this.props.onSaveAction.execute();
             }else
             {
                 alert("يرجى التقاط الصوره اولا")
@@ -121,7 +132,7 @@ export class IRISCameraCapture extends Component {
                             this.setState({
                                 FakeIMageHide: false,
                                 ChnageStyle: { borderRadius: '1px solid #000000', objectFit: 'contain' },
-                                IMAGE_IRIS: "./img/MyFirstModule$Images$DeviceNotConnetced.png",
+                                IMAGE_IRIS:  `./img/${this.props.ModuleName.value}$${this.props.ImageCollection.value}$DeviceNotConnetced.png`,
 
                             })
 
@@ -155,7 +166,7 @@ export class IRISCameraCapture extends Component {
                                 this.setState({
                                     ProgressloadingHidden: false,
                                     FakeIMageHide: false,
-                                    IMAGE_IRIS: "./img/MyFirstModule$Images$RefreshPage.jpg",
+                                    IMAGE_IRIS: `./img/${this.props.ModuleName.value}$${this.props.ImageCollection.value}$RefreshPage.jpg`,
                                     ChnageStyle: { borderRadius: '1px solid #000000', objectFit: 'contain' },
                                 })
 
@@ -188,9 +199,11 @@ export class IRISCameraCapture extends Component {
             <div class="container">
 
                 <div className="row RowHeader header">
-                    <div className="col-xs-6 col-sm-6 col-md-6">
-                        <img src="./img/MyFirstModule$Images$IraqLogo.png" />
-                    </div>
+                    {/* <div className="col-xs-6 col-sm-6 col-md-6">
+                        <img src={`./img/${this.props.ModuleName.value}$${this.props.ImageCollection.value}$IraqLogo.png`} />
+                       
+                        
+                    </div> */}
 
                     <div className="col-xs-6 col-sm-6 col-md-6">
 
@@ -206,6 +219,7 @@ export class IRISCameraCapture extends Component {
                 <div className="row HeaderRow2">
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <button id="buttonRefresh" onClick={()=>this.RefreshCamera()} class="btn btn-success btn-block"><p>تحديث</p></button>
+                            <button id="buttonRefresh" onClick={()=>this.ClosePage()} class="btn btn-success btn-block"><p>الغاء</p></button>
                             {/* <button id="buttonRefresh" onClick={()=>this.CloseDevice()} class="btn btn-success btn-block"><p>اغلاق الجهاز</p></button> */}
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6"> 
@@ -224,19 +238,21 @@ export class IRISCameraCapture extends Component {
                                 </div>
                             ) : ('')}
 
-                            {this.state.FakeIMageHide ? (<img id="fakeIMage" src="./img/MyFirstModule$Images$outline.png" />) : ('')}
+                            {this.state.FakeIMageHide ? (<img id="fakeIMage" src={ `./img/${this.props.ModuleName.value}$${this.props.ImageCollection.value}$outline.png`}/>) : ('')}
+
+                           
 
 
 
                         </div>
 
                         <img src={this.state.IMAGE_IRIS} class="borderSstyle" width="240" height="320" style={this.state.ChnageStyle} />
-                        <button type="button" id="captureButton" onClick={() => this.ButtonCaptureImage()} class="btn btn-primary" style={{ width: '90%' }}><p>التقاط الصورة</p></button>
+                        <button type="button" id="captureButton" onClick={() => this.ButtonCaptureImage()} class="btn btn-primary" style={{visibility : this.props.EnableButtonCapture.value == 'false' ? "hidden" : "visible", width: '90%' }}><p>التقاط الصورة</p></button>
 
                     </div>
                     <div className="col-xs-5 col-sm-5 col-md-5" style={{ textAlign: '-webkit-center' }}>
                         <img src={this.state.imgCaptured} class="borderSstyle" width="240" height="320" style={this.state.ChnageIMage2Style} />
-                        <button type="button" id="SaveImageCapture" onClick={() => this.SaveCaptureCamera()} class="btn btn-success btn-block" style={{ width: '90%' }}><p>حفظ الصورة</p></button>
+                        <button type="button" id="SaveImageCapture" onClick={() => this.SaveCaptureCamera()} class="btn btn-success btn-block" style={{visibility : this.props.EnableButtonSave.value == 'false' ? "hidden" : "visible" , width: '90%' }}><p>حفظ الصورة</p></button>
                     </div>
 
                 </div>

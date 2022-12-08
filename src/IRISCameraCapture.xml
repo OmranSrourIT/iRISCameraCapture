@@ -10,7 +10,7 @@
     </icon>
     <properties>
         <propertyGroup caption="General">
-            <property key="ImageCamera" type="attribute" required="false">
+            <property key="ImageCamera" type="attribute" required="true">
                 <caption>Image Camera</caption>
                 <description>The attribute that contains the Image Camera value</description>
                 <attributeTypes>
@@ -24,23 +24,44 @@
         </propertyGroup>
        
         <propertyGroup caption="Events">
-            <property key="onSavekAction" type="action" required="false">
+
+            <property key="onSaveAction" type="action" required="true">
                 <caption>On Save action</caption>
                 <description>Action to trigger when button Save image is clicked</description>
             </property>
 
-            <property key="EnableButtonCapture" type="expression" defaultValue="'false'">
+            <property key="onCloseAction" type="action" required="true">
+                <caption>On Close action</caption>
+                <description>Action to trigger when button Close image is clicked</description>
+            </property>
+
+        </propertyGroup>
+        <propertyGroup caption="ButtonHandler">
+            
+            <property key="EnableButtonCapture" type="expression" defaultValue="'true'">
                 <caption>Enable Button Capture</caption>
                 <description>boolean Enable Button Capture</description>
                 <returnType type="String" />
             </property>
 
-            <property key="EnableButtonSave" type="expression"  defaultValue="'false'">
+            <property key="EnableButtonSave" type="expression"  defaultValue="'true'">
                 <caption>Enable Button Save</caption>
                 <description>boolean Enable Button Save</description>
                 <returnType type="String" />
             </property>
-            
+
+        </propertyGroup>
+
+        <propertyGroup caption="Image Configration"> 
+            <property key="ModuleName" type="textTemplate" required="true">
+                <caption>Module Name</caption>
+                <description>The value To path Image from Module Name</description> 
+            </property> 
+
+            <property key="ImageCollection" type="textTemplate" required="true">
+                <caption>ImageCollection Name</caption>
+                <description>The value To path Image from ImageCollection Name</description> 
+            </property> 
         </propertyGroup>
     </properties>
 </widget>
